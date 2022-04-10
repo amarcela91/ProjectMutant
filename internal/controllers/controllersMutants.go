@@ -24,7 +24,7 @@ func SaveMutant(c echo.Context) error {
 func ObtainMutant(c echo.Context) error {
 	stats, err := services.CalculateStats()
 	if err != nil {
-		return echo.NewHTTPError(http.StatusInternalServerError, "No se logró calcular las estadísticas de verificación de ADN")
+		return echo.NewHTTPError(http.StatusInternalServerError, err.Error())
 	}
 	return c.JSON(http.StatusOK, stats)
 }

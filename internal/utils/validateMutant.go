@@ -64,7 +64,7 @@ func IsMutant(data []string) bool {
 		"ATGCGA",
 		"CAGTGC",
 		"TTATGT",
-		"AGAAGG",
+		"AGAAAG",
 		"CCCTTA",
 		"TCACTG"}
 	fmt.Println(isMutant(array))

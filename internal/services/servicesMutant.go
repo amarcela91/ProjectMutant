@@ -22,7 +22,7 @@ func CreateMutant(newMutant models.Mutant) (models.Mutant, error) {
 	_, errorMongo := connection.GetCollection().InsertOne(context.TODO(), newMutant)
 	if errorMongo != nil {
 		//return models.Mutant{}, errorMongo
-		return models.Mutant{}, errors.New("No se logró calcular las estadísticas de verificación de ADN")
+		return models.Mutant{}, errors.New("No se logró crear el mutante")
 	}
 
 	return newMutant, nil
@@ -34,13 +34,13 @@ func CalculateStats() (models.Stats, error) {
 	stats := new(models.Stats)
 	cur, errorMongo := connection.GetCollection().Find(context.TODO(), bson.D{{}})
 	if errorMongo != nil {
-		return models.Stats{}, errorMongo
+		return models.Stats{}, errors.New("No se logró calcular las estadísticas de verificación de ADN")
 	}
 
 	for cur.Next(context.TODO()) {
 		var elem models.Mutant
 		if err := cur.Decode(&elem); err != nil {
-			return models.Stats{}, err
+			return models.Stats{}, errors.New("No se logró calcular las estadísticas de verificación de ADN")
 		}
 		if elem.IsMutant {
 			count++
