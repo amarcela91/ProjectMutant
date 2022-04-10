@@ -15,7 +15,7 @@ func SaveMutant(c echo.Context) error {
 	}
 	createMutant, err := services.CreateMutant(*newMutant)
 	if err != nil {
-		return echo.NewHTTPError(http.StatusForbidden, "No se logró crear el mutante")
+		return echo.NewHTTPError(http.StatusForbidden, err.Error())
 	}
 
 	return c.JSON(http.StatusOK, createMutant)
@@ -26,7 +26,5 @@ func ObtainMutant(c echo.Context) error {
 	if err != nil {
 		return echo.NewHTTPError(http.StatusInternalServerError, "No se logró calcular las estadísticas de verificación de ADN")
 	}
-
 	return c.JSON(http.StatusOK, stats)
-
 }
