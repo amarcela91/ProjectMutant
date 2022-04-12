@@ -5,7 +5,7 @@ Este proyecto posee los metodos https, el primero permite analizar una secuencia
 ### Prerequisites
 
 1. Instalar [go](https://www.mongodb.com/try/download/compass)
-2. Instalar [Mongo Compass](https://www.mongodb.com/try/download/compass) 
+2. Instalar [Mongo Compass](https://www.mongodb.com/try/download/compass) y [MongoDB Community Server](https://www.mongodb.com/try/download/community) 
 3. Instalar [Postman](https://www.postman.com/downloads/)
 
 ## Getting Started

@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "36671aab-e32d-4145-9dbd-bccfe6ce39b3",
+		"_postman_id": "be46f46d-c096-47c1-b46e-970f45f2a3af",
 		"name": "Mutants",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
@@ -35,11 +35,21 @@
 			"response": []
 		},
 		{
-			"name": "New Request",
+			"name": "/stats",
 			"request": {
 				"method": "GET",
 				"header": [],
-				"url": null
+				"url": {
+					"raw": "http://localhost:1323/stats",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "1323",
+					"path": [
+						"stats"
+					]
+				}
 			},
 			"response": []
 		}
