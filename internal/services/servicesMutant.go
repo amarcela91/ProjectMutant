@@ -11,7 +11,6 @@ import (
 )
 
 func CreateMutant(newMutant models.Mutant) (models.Mutant, error) {
-	newMutant.IsMutant = utils.IsMutant(newMutant.Dna)
 	findMutan := new(models.Mutant)
 	err := connection.GetCollection().FindOne(context.TODO(), bson.D{{"dna", newMutant.Dna}}).Decode(&findMutan)
 
@@ -19,6 +18,8 @@ func CreateMutant(newMutant models.Mutant) (models.Mutant, error) {
 	if err == nil {
 		return models.Mutant{}, errors.New("El ADN que quiere analizar ya existe")
 	}
+	newMutant.IsMutant = utils.IsMutant(newMutant.Dna)
+
 	_, errorMongo := connection.GetCollection().InsertOne(context.TODO(), newMutant)
 	if errorMongo != nil {
 		//return models.Mutant{}, errorMongo
